@@ -8,7 +8,7 @@ Stable tag:        0.02
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
-Allows posts and pages to be archived so you can remove content from the maain loop and feed without having to trash it.
+Allows posts and pages to be archived so you can remove content from the main loop and feed without having to trash it.
 
 == Description ==
 
