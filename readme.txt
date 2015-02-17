@@ -16,8 +16,9 @@ Allows posts and pages to be archived so you can remove content from the maain l
 
 This plugin allows you to archive your WordPress content similar to the way you archive your e-mail.
 
-* Makes a new post status available in the dropdown called Archived
-* Removes your content from the main loop and feed and pages without having to trash the content
+* Makes a new post status available in the drop down called Archived
+* Hides or removes your content without having to trash the content
+* Content can either be hidden entirely from public view  or simply from the main loop and feed and pages 
 * Allows you to add a message to the top of the post/page etc that the content is no longer up too date
 * Compatible with posts, pages and custom post types
 * Ideal for sites where certain kinds of content is not meant to be evergreen
@@ -30,17 +31,17 @@ Actually, no, they are not the same thing.
 
 The Draft status is a "pre-published" status that is reserved for content that is still being worked on. You can still make changes to content marked as Draft, and you can preview your changes.
 
-The Private status is a special kind of published status. It means the content is only avavailable to certain logged in users.
+The Private status is a special kind of published status. It means the content is only available to certain logged in users.
 
-The Archived post status, on the other hand, is meant to be a "post-published" status. Once a post has been set to Archived it will not appear on the front page or the feed (but can be viewed on the single page) and can no longer be edited on the back end (unless the status is changed back to publish).
+The Archived post status, on the other hand, is meant to be a "post-published" status. Once a post has been set to Archived the content is either hidden entirely from non logged in viewers or removed from the front page and feed (but still available on singular pages). This behaviour is controlled in the settings screen.
 
 = Doesn't this do the same thing as the other archiving plugin in the repository? =
 
-Unlike the other plugin content archived with this plugin is still available to non logged in visitors. It is however removed from the front page and xml feeds. A custom message can also be added to flag to visitors that the content is no longer up too date.
+Actually it does more! Unlike the other plugin content archived with this plugin can still be available to non logged in visitors (depends on plugin settings) and just  removed from the front page and xml feeds (with a custom message can also be added to flag to visitors that the content is no longer up too date). Alternately it can be hidden entirely (to non logged in viewers).
 
 = Can't I just trash old content I don't want anymore? =
 
-Yes, there is nothing wong with trashing old content. However it will be hidden from non logged in viewers.
+Yes, there is nothing wrong with trashing old content. However it will be hidden from non logged in viewers.
 
 However, WordPress automatically purges trashed posts every 7 days (by default), so it wil be gone.
 
