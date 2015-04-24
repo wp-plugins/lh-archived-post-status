@@ -3,7 +3,7 @@
 Plugin Name: LH Archived Post Status
 Plugin URI: http://lhero.org/plugins/lh-archived-post-status/
 Description: Creates an archived post status. Content can be excluded from the main loop and feed (but visible with a message), or hidden entirely
-Version: 1.0
+Version: 1.1
 Author: Peter Shaw
 Author URI: http://shawfactor.com/
 
@@ -17,6 +17,9 @@ Author URI: http://shawfactor.com/
 
 = 1.0 =
 * Added icons
+
+= 1.1 =
+* Added nonces
 
 
 
@@ -244,8 +247,12 @@ $lh_archive_options = get_option($this->options_name);
 
 if (in_array($post->post_type, $lh_archive_options[$this->posttypes_field_name])) {
 
+$url = add_query_arg( 'lh_archived_post_status-archive_post', $post->ID );
 
-$actions['archive_link']  = '<a href="'.add_query_arg( 'lh-exclude', $post->ID ).'" title="' . esc_attr( __( 'Archive this post' ) ) . '">' . __( 'Archive' ) . '</a>';
+$url = add_query_arg( 'lh_archived_post_status-archive_nonce', wp_create_nonce( 'lh_archived_post_status-archive_post'.$post->ID ), $url );
+
+
+$actions['archive_link']  = '<a href="'.$url.'" title="' . esc_attr( __( 'Archive this post' ) ) . '">' . __( 'Archive' ) . '</a>';
 
 }
 
@@ -318,19 +325,21 @@ function display_archive_state( $states ) {
 
 function handle_archiving(){
 
-if($_GET['lh-exclude']){
+if($_GET['lh_archived_post_status-archive_post']){
 
 if ( current_user_can('publish_posts') ) { 
 
-
+if (wp_verify_nonce( $_GET['lh_archived_post_status-archive_nonce'], 'lh_archived_post_status-archive_post'.$_GET['lh_archived_post_status-archive_post'])){
 
   $my_post = array(
-	'ID'           =>  $_GET['lh-exclude'],
+	'ID'           =>  $_GET['lh_archived_post_status-archive_post'],
 	'post_status' => $this->newstatusname
   );
 
 // Update the post into the database
   wp_update_post( $my_post );
+
+}
 
 
 }
