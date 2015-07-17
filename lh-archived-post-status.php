@@ -3,7 +3,7 @@
 Plugin Name: LH Archived Post Status
 Plugin URI: http://lhero.org/plugins/lh-archived-post-status/
 Description: Creates an archived post status. Content can be excluded from the main loop and feed (but visible with a message), or hidden entirely
-Version: 1.1
+Version: 1.2
 Author: Peter Shaw
 Author URI: http://shawfactor.com/
 
@@ -21,7 +21,8 @@ Author URI: http://shawfactor.com/
 = 1.1 =
 * Added nonces
 
-
+= 1.2 =
+* Added settings
 
 License:
 Released under the GPL license
@@ -46,11 +47,12 @@ class LH_archived_post_status_plugin {
 	      var $posttypes_field_name = 'lh_archive_post_status_posttypes';
 		var $publicly_available = 'public';
                var $options_name = 'lh_archive_post_status_options';
+		var $filename;
 
 
 
 function plugin_menu() {
-add_options_page('Archive ptions', 'LH Archive', 'manage_options', 'lh-archive-identifier', array($this,"plugin_options"));
+add_options_page('Archive ptions', 'LH Archive', 'manage_options', $this->filename, array($this,"plugin_options"));
 }
 
 
@@ -383,7 +385,19 @@ $("select#post_status").append("<option value=\"'.$this->newstatusname.'\" >'.uc
      }
 } 
 
+// add a settings link next to deactive / edit
+public function add_settings_link( $links, $file ) {
+
+	if( $file == $this->filename ){
+		$links[] = '<a href="'. admin_url( 'options-general.php?page=' ).$this->filename.'">Settings</a>';
+	}
+	return $links;
+}
+
+
 function __construct() {
+
+$this->filename = plugin_basename( __FILE__ );
 
 add_action( 'init', array($this,"create_archived_custom_post_status"));
 
@@ -404,6 +418,8 @@ add_filter( 'display_post_states', array($this,"display_archive_state"));
 add_action( 'plugins_loaded', array($this,"handle_archiving"));
 
 add_action('admin_footer-post.php', array($this,"append_post_status_list"));
+
+add_filter('plugin_action_links', array($this,"add_settings_link"), 10, 2);
 
 }
 
