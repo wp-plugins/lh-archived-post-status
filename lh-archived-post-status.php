@@ -3,7 +3,7 @@
 Plugin Name: LH Archived Post Status
 Plugin URI: http://lhero.org/plugins/lh-archived-post-status/
 Description: Creates an archived post status. Content can be excluded from the main loop and feed (but visible with a message), or hidden entirely
-Version: 1.2
+Version: 1.3
 Author: Peter Shaw
 Author URI: http://shawfactor.com/
 

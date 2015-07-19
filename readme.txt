@@ -4,7 +4,7 @@ Donate link: 	 http://lhero.org/plugins/lh-archived-post-status/
 Tags:              admin, posts, pages, status, workflow
 Requires at least: 3.0
 Tested up to:      4.2
-Stable tag:        1.2
+Stable tag:        1.3
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,15 @@ This plugin allows you to archive your WordPress content similar to the way you 
 * Allows you to add a message to the top of the post/page etc that the content is no longer up too date
 * Compatible with posts, pages and custom post types
 * Ideal for sites where certain kinds of content is not meant to be evergreen
+
+Check out [our documentation][docs] for more information on why and how to use this new status. 
+
+All tickets for the project are being tracked on [GitHub][].
+
+
+[docs]: http://lhero.org/plugins/lh-archived-post-status/
+[GitHub]: https://github.com/shawfactor/lh-archived-post-status
+
 
 == Frequently Asked Questions ==
 
@@ -58,6 +67,7 @@ Yes, you can do this in the settings area, just select the post types that you w
 = 1.00 - March 26, 2015 =
 = 1.1 - April 24, 2015 =
 = 1.2 - June 15, 2015 =
+= 1.3 - July 17, 2015 =
 
 
 * Initial release
