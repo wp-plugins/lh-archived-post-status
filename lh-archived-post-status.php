@@ -3,7 +3,7 @@
 Plugin Name: LH Archived Post Status
 Plugin URI: http://lhero.org/plugins/lh-archived-post-status/
 Description: Creates an archived post status. Content can be excluded from the main loop and feed (but visible with a message), or hidden entirely
-Version: 1.3
+Version: 1.31
 Author: Peter Shaw
 Author URI: http://shawfactor.com/
 
@@ -23,6 +23,10 @@ Author URI: http://shawfactor.com/
 
 = 1.2 =
 * Added settings
+
+
+= 1.31 =
+* Minor code improvements
 
 License:
 Released under the GPL license
@@ -119,7 +123,7 @@ $lh_archive_options = get_option($this->options_name);
 
     // header
 
-    echo "<h2>" . __( 'LH Archive Post Type Settings', 'menu-test' ) . "</h2>";
+    echo "<h1>" . __( 'LH Archive Post Type Settings', 'menu-test' ) . "</h1>";
 
     // settings form
     
@@ -128,7 +132,7 @@ $lh_archive_options = get_option($this->options_name);
 <form name="form1" method="post" action="">
 <input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
 
-<p><?php _e("Can Archived Posts be read publicly:", 'lh-archived-post-status'); ?>
+<p><label for="<?php echo $this->publicly_available; ?>"><?php _e("Can Archived Posts be read publicly:", 'lh-archived-post-status'); ?></label>
 <select name="<?php echo $this->publicly_available; ?>" id="<?php echo $this->publicly_available; ?>">
 <option value="1" <?php  if ($lh_archive_options[$this->publicly_available] == 1){ echo 'selected="selected"'; }  ?>>Yes - But not on the frontpage or feed</option>
 <option value="0" <?php  if ($lh_archive_options[$this->publicly_available] == 0){ echo 'selected="selected"';}  ?>>No - only logged in users can view archived posts</option>
@@ -137,9 +141,9 @@ $lh_archive_options = get_option($this->options_name);
 
 
 
-<p><strong><?php _e("Archive Message:", 'menu-test' ); ?></strong><br/>
+<p><strong><label for="<?php echo $this->message_field_name; ?>"><?php _e("Archive Message:", 'menu-test' ); ?></label></strong><br/>
 This message will appear at the top of any archived post or page when viewed.<br/>
-<textarea name="<?php echo $this->message_field_name; ?>" rows="20" cols="50">
+<textarea name="<?php echo $this->message_field_name; ?>" id="<?php echo $this->message_field_name; ?>" rows="20" cols="50">
 <?php echo $lh_archive_options[$this->message_field_name] ; ?>
 </textarea>
 </p>

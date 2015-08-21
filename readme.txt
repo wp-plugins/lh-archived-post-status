@@ -3,8 +3,8 @@ Contributors:      shawfactor
 Donate link: 	 http://lhero.org/plugins/lh-archived-post-status/
 Tags:              admin, posts, pages, status, workflow
 Requires at least: 3.0
-Tested up to:      4.2
-Stable tag:        1.3
+Tested up to:      4.3
+Stable tag:        1.31
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,7 @@ Yes, you can do this in the settings area, just select the post types that you w
 = 1.1 - April 24, 2015 =
 = 1.2 - June 15, 2015 =
 = 1.3 - July 17, 2015 =
+= 1.31 - August 17, 2015 =
 
 
 * Initial release
